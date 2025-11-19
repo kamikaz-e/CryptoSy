@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "dev.kamikaze.totracker"
+    namespace = "dev.kamikaze.cryptosy"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "dev.kamikaze.totracker"
+        applicationId = "dev.kamikaze.cryptosy"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

@@ -1,4 +1,4 @@
-package dev.kamikaze.totracker
+package dev.kamikaze.cryptosy
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
