@@ -79,16 +79,10 @@ data class CoinPrice(
     val change1hAbs: Double?
 ) {
     val displaySymbol: String
-        get() = when (symbol.uppercase()) {
-            "ASTER" -> "ASTR"
-            else -> symbol.uppercase()
-        }
+        get() = symbol.uppercase()
 
     val displayName: String
-        get() = when (symbol.uppercase()) {
-            "ASTR", "ASTER" -> "Astar"
-            else -> name ?: symbol
-        }
+        get() = name ?: symbol
 }
 
 @Serializable

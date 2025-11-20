@@ -22,9 +22,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2b3dcf5-26ee-4ac5-94bf-053e7f9f2e3b" name="Changes" comment="git ignore">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/appInsightsSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ChatViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ChatViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/model/Model.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/model/Model.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatScreen.kt" afterDir="false" />
     </list>
     <list id="089a883f-03a2-4030-ac99-f13eec2574d1" name="gitignore" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +117,8 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/admin/StudioProjects/CryptoSy&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/admin/StudioProjects/CryptoSy&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -209,7 +213,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f2b3dcf5-26ee-4ac5-94bf-053e7f9f2e3b" name="Changes" comment="" />
-      <changelist id="" name="trash" comment="" />
       <changelist id="089a883f-03a2-4030-ac99-f13eec2574d1" name="gitignore" comment="" />
       <created>1763552525742</created>
       <option name="number" value="Default" />
@@ -264,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763639058966</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="git ignore">
+      <option name="closed" value="true" />
+      <created>1763639859476</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1763639859476</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,28 +318,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt</url>
-          <line>66</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt</url>
-          <line>62</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt</url>
-          <line>60</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt</url>
           <line>58</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt</url>
-          <line>52</line>
-          <option name="timeStamp" value="5" />
+          <line>49</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

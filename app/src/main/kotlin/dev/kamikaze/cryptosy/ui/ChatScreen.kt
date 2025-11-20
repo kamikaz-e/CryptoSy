@@ -2,6 +2,7 @@ package dev.kamikaze.cryptosy.ui
 
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -43,7 +44,7 @@ fun ChatScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Crypto Chat") },
+                title = { Text("CryptoSy") },
                 actions = {
                     // Service toggle button
                     IconButton(
@@ -62,10 +63,6 @@ fun ChatScreen(
                         )
                     }
 
-                    // Tools button
-                    IconButton(onClick = { viewModel.onEvent(ChatEvent.ToolsPressed) }) {
-                        Icon(Icons.Default.Build, contentDescription = "Tools")
-                    }
                 }
             )
         }
@@ -101,6 +98,7 @@ fun ChatScreen(
             ChatInputPanel(
                 text = uiState.input,
                 onTextChanged = { viewModel.onEvent(ChatEvent.InputChanged(it)) },
+                onSettingsClick = { viewModel.onEvent(ChatEvent.ToolsPressed) },
                 onSend = { viewModel.onEvent(ChatEvent.SendPressed) },
                 isSending = uiState.isSending
             )
@@ -128,6 +126,7 @@ fun ChatScreen(
 fun ChatInputPanel(
     text: String,
     onTextChanged: (String) -> Unit,
+    onSettingsClick: () -> Unit,
     onSend: () -> Unit,
     isSending: Boolean
 ) {
@@ -147,7 +146,7 @@ fun ChatInputPanel(
                 modifier = Modifier
                     .weight(1f)
                     .heightIn(min = 56.dp, max = 200.dp),
-                placeholder = { Text("Введите сообщение...") },
+                placeholder = { Text("О чем хотите узнать?") },
                 maxLines = 10,
                 keyboardOptions = KeyboardOptions(
                     imeAction = ImeAction.Send,
@@ -160,18 +159,29 @@ fun ChatInputPanel(
 
             Spacer(modifier = Modifier.width(8.dp))
 
-            FloatingActionButton(
-                onClick = onSend,
-                modifier = Modifier.size(56.dp),
-                containerColor = MaterialTheme.colorScheme.primary
-            ) {
-                if (isSending) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(24.dp),
-                        color = MaterialTheme.colorScheme.onPrimary
-                    )
-                } else {
-                    Icon(Icons.AutoMirrored.Filled.Send, contentDescription = "Send")
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ){
+                FilledIconButton(
+                    onClick = onSettingsClick,
+                    modifier = Modifier.size(56.dp)
+                ) {
+                    Icon(Icons.Default.Build, contentDescription = "Tools")
+                }
+
+                FloatingActionButton(
+                    onClick = onSend,
+                    modifier = Modifier.size(56.dp),
+                    containerColor = MaterialTheme.colorScheme.primary
+                ) {
+                    if (isSending) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp),
+                            color = MaterialTheme.colorScheme.onPrimary
+                        )
+                    } else {
+                        Icon(Icons.AutoMirrored.Filled.Send, contentDescription = "Send")
+                    }
                 }
             }
         }

@@ -64,7 +64,7 @@ class CryptoUpdateService : Service() {
                 } catch (e: Exception) {
                     Timber.e(e, "Error fetching summary")
                 }
-                delay(UPDATE_INTERVAL_MS)
+                delay(UPDATE_INTERVAL_MS * 2)
             }
         }
     }
@@ -116,7 +116,7 @@ class CryptoUpdateService : Service() {
         )
 
         return NotificationCompat.Builder(this, CryptoSy.CHANNEL_ID)
-            .setContentTitle("Crypto Chat")
+            .setContentTitle("Crypto Sy")
             .setContentText(text)
             .setSmallIcon(R.drawable.notification_24)
             .setContentIntent(pendingIntent)

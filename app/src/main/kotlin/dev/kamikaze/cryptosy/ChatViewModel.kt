@@ -2,7 +2,6 @@ package dev.kamikaze.cryptosy
 
 import android.app.Application
 import android.content.Intent
-import android.os.Build
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -10,7 +9,6 @@ import dev.kamikaze.cryptosy.data.repository.ChatRepository
 import dev.kamikaze.cryptosy.domain.model.ChatItem
 import dev.kamikaze.cryptosy.domain.model.ChatPayload
 import dev.kamikaze.cryptosy.domain.model.ChatRole
-import dev.kamikaze.cryptosy.domain.usecase.GetSummaryUseCase
 import dev.kamikaze.cryptosy.domain.usecase.LoadToolsUseCase
 import dev.kamikaze.cryptosy.domain.usecase.SendMessageUseCase
 import dev.kamikaze.cryptosy.service.CryptoUpdateService
@@ -24,8 +22,7 @@ class ChatViewModel(
     private val app: Application,
     private val repository: ChatRepository,
     private val sendMessageUseCase: SendMessageUseCase,
-    private val loadToolsUseCase: LoadToolsUseCase,
-    private val getSummaryUseCase: GetSummaryUseCase
+    private val loadToolsUseCase: LoadToolsUseCase
 ) : AndroidViewModel(app) {
 
     companion object {
@@ -39,8 +36,7 @@ class ChatViewModel(
                         app = app,
                         repository =  container.chatRepository,
                         sendMessageUseCase = container.sendMessageUseCase,
-                        loadToolsUseCase = container.loadToolsUseCase,
-                        getSummaryUseCase = container.getSummaryUseCase
+                        loadToolsUseCase = container.loadToolsUseCase
                     ) as T
                 }
             }
