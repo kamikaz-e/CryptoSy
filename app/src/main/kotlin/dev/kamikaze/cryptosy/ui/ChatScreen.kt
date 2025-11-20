@@ -41,12 +41,18 @@ fun ChatScreen(
         }
     }
 
+    // Скрытие клавиатуры при скролле
+    LaunchedEffect(listState.isScrollInProgress) {
+        if (listState.isScrollInProgress) {
+            focusManager.clearFocus()
+        }
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("CryptoSy") },
                 actions = {
-                    // Service toggle button
                     IconButton(
                         onClick = {
                             if (uiState.isServiceRunning) {
@@ -62,7 +68,6 @@ fun ChatScreen(
                             tint = if (uiState.isServiceRunning) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
                         )
                     }
-
                 }
             )
         }
@@ -71,18 +76,13 @@ fun ChatScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
+                .imePadding() // Добавляет отступ для клавиатуры
         ) {
-            // Messages list
             LazyColumn(
                 state = listState,
                 modifier = Modifier
                     .weight(1f)
-                    .fillMaxWidth()
-                    .pointerInput(Unit) {
-                        detectDragGestures { _, _ ->
-                            focusManager.clearFocus()
-                        }
-                    },
+                    .fillMaxWidth(),
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
@@ -94,7 +94,6 @@ fun ChatScreen(
                 }
             }
 
-            // Input panel
             ChatInputPanel(
                 text = uiState.input,
                 onTextChanged = { viewModel.onEvent(ChatEvent.InputChanged(it)) },
