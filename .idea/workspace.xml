@@ -21,47 +21,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2b3dcf5-26ee-4ac5-94bf-053e7f9f2e3b" name="Changes" comment="asd">
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ChatViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/CryptoSy.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/cache/ChatCache.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/dto/ChatRequestDto.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/dto/ChatResponseDto.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/remote/McpApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/repository/ChatRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/repository/ChatRepositoryImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/di/AppContainer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/model/Model.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/usecase/GetSummaryUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/usecase/LoadToolsUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/usecase/SendMessageUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatEvent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatMessage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatUiState.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/CoinInfoCard.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/FearGreedGauge.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/NewsCard.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/PricesCard.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/theme/Color.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/theme/Theme.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/theme/Type.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/utils/ToolsDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/notification_24.xml" afterDir="false" />
+    <list default="true" id="f2b3dcf5-26ee-4ac5-94bf-053e7f9f2e3b" name="Changes" comment="Крипто клиент с новостями и последней информацией по рынку" />
+    <list id="74f6a644-1942-4aed-9269-4607d4e3facc" name="trash" comment="">
+      <change afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1763591147203.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1763591222247.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1763591793968.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1763591902385.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1763592059961.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1763592103911.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.3/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,6 +217,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f2b3dcf5-26ee-4ac5-94bf-053e7f9f2e3b" name="Changes" comment="" />
+      <changelist id="74f6a644-1942-4aed-9269-4607d4e3facc" name="trash" comment="" />
       <created>1763552525742</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -281,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763586417535</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Крипто клиент с новостями и последней информацией по рынку">
+      <option name="closed" value="true" />
+      <created>1763596613265</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1763596613265</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -314,7 +296,8 @@
     <MESSAGE value="fix gitignore" />
     <MESSAGE value="rename" />
     <MESSAGE value="rename" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename" />
+    <MESSAGE value="Крипто клиент с новостями и последней информацией по рынку" />
+    <option name="LAST_COMMIT_MESSAGE" value="Крипто клиент с новостями и последней информацией по рынку" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
   <component name="XDebuggerManager">
