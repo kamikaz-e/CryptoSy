@@ -193,4 +193,8 @@ fileHashes.lock
 
 # Ktor related
 .ktor/
-.gradle/7.5.1/dependencies.bin
+.gradle/
+/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml
+/.idea/shelf/Uncommitted_changes_before_rebase__gitignore_.xml
+.gradle/
+/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]2/shelved.patch
