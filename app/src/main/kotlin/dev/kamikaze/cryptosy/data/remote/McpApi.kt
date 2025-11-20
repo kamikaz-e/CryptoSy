@@ -50,9 +50,7 @@ class McpApiImpl(
 
     override suspend fun getSummary(): Result<List<ChatResponseItemDto>> = runCatching {
         Timber.d("Fetching summary")
-        val response: ChatResponseDto = client.get("$baseUrl/summary") {
-            parameter("period", "1h")
-        }.body()
+        val response: ChatResponseDto = client.get("$baseUrl/summary").body()
         response.items
     }.onFailure { 
         Timber.e(it, "Failed to fetch summary")

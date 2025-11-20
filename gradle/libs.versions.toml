@@ -1,5 +1,7 @@
 [versions]
 agp = "8.13.1"
+coilCompose = "2.7.0"
+datastorePreferences = "1.2.0"
 hiltAndroid = "2.57.2"
 hiltNavigationCompose = "1.3.0"
 kotlin = "2.2.21"
@@ -7,16 +9,26 @@ coreKtx = "1.17.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
+kotlinxCoroutinesAndroid = "1.10.2"
+kotlinxSerializationJson = "1.9.0"
 ktorVersion = "3.3.2"
+lifecycleRuntimeCompose = "2.10.0"
 lifecycleRuntimeKtx = "2.10.0"
-activityCompose = "1.11.0"
+activityCompose = "1.12.0"
 composeBom = "2025.11.01"
-timber = "5.0.1"
+lifecycleViewmodelCompose = "2.10.0"
+navigationCompose = "2.9.6"
+timberVersion = "5.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleRuntimeCompose" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -31,6 +43,8 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorVersion" }
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktorVersion" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
@@ -40,6 +54,7 @@ ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx
 
 # Hilt Compiler
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timberVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

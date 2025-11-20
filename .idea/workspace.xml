@@ -21,15 +21,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2b3dcf5-26ee-4ac5-94bf-053e7f9f2e3b" name="Changes" comment="git ignore">
-      <change afterPath="$PROJECT_DIR$/.idea/appInsightsSettings.xml" afterDir="false" />
+    <list default="true" id="f2b3dcf5-26ee-4ac5-94bf-053e7f9f2e3b" name="Changes" comment="Порефакторил кнопки">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ChatViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ChatViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/dto/ChatResponseDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/dto/ChatResponseDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/remote/McpApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/remote/McpApi.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/model/Model.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/model/Model.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/CoinInfoCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/CoinInfoCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
-    <list id="089a883f-03a2-4030-ac99-f13eec2574d1" name="gitignore" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -209,11 +211,17 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="${TEAM_ID}" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f2b3dcf5-26ee-4ac5-94bf-053e7f9f2e3b" name="Changes" comment="" />
-      <changelist id="089a883f-03a2-4030-ac99-f13eec2574d1" name="gitignore" comment="" />
+      <changelist id="" name="gitignore" comment="" />
       <created>1763552525742</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -275,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763639859476</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Порефакторил кнопки">
+      <option name="closed" value="true" />
+      <created>1763676236758</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1763676236758</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -310,7 +326,8 @@
     <MESSAGE value="rename" />
     <MESSAGE value="Крипто клиент с новостями и последней информацией по рынку" />
     <MESSAGE value="git ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="git ignore" />
+    <MESSAGE value="Порефакторил кнопки" />
+    <option name="LAST_COMMIT_MESSAGE" value="Порефакторил кнопки" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
   <component name="XDebuggerManager">
@@ -344,12 +361,12 @@
         </entry>
         <entry key="dev.kamikaze.cryptosy">
           <value>
-            <CheckInfo lastCheckTimestamp="1763586579875" />
+            <CheckInfo lastCheckTimestamp="1763678546311" />
           </value>
         </entry>
         <entry key="dev.kamikaze.cryptosy.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1763586579874" />
+            <CheckInfo lastCheckTimestamp="1763678546311" />
           </value>
         </entry>
         <entry key="dev.kamikaze.totracker">

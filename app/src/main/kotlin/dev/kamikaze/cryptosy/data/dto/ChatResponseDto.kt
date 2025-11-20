@@ -38,7 +38,32 @@ data class ChatResponseItemDto(
     val description: String? = null,
     val marketCap: Double? = null,
     val price: Double? = null,
-    val change24h: Double? = null
+    val change24h: Double? = null,
+
+    // Extended Coin fields
+    val id: String? = null,
+    val icon: String? = null,
+    val rank: Int? = null,
+    val priceBtc: Double? = null,
+    val volume: Double? = null,
+    val availableSupply: Double? = null,
+    val totalSupply: Double? = null,
+    val fullyDilutedValuation: Double? = null,
+    val priceChange1h: Double? = null,
+    val priceChange1d: Double? = null,
+    val priceChange1w: Double? = null,
+    val websiteUrl: String? = null,
+    val redditUrl: String? = null,
+    val twitterUrl: String? = null,
+    val contractAddress: String? = null,
+    val contractAddresses: List<ContractAddressDto>? = null,
+    val decimals: Int? = null,
+    val explorers: List<String>? = null,
+    val liquidityScore: Double? = null,
+    val volatilityScore: Double? = null,
+    val marketCapScore: Double? = null,
+    val riskScore: Double? = null,
+    val avgChange: Double? = null
 )
 
 @Serializable
@@ -67,6 +92,12 @@ data class NewsItemDto(
 )
 
 @Serializable
+data class ContractAddressDto(
+    val blockchain: String,
+    @SerialName("contractAddress") val contractAddress: String
+)
+
+@Serializable
 data class ToolsResponseDto(
     val tools: List<ToolItemDto>
 )
@@ -87,6 +118,7 @@ fun ChatResponseItemDto.toDomain(): ChatItem {
             base = base ?: "USD",
             coins = coins?.map { it.toDomain() } ?: emptyList()
         )
+
         "fearGreed" -> {
             // Новый формат с историей
             if (now != null) {
@@ -107,17 +139,60 @@ fun ChatResponseItemDto.toDomain(): ChatItem {
                 )
             }
         }
+
         "news" -> ChatPayload.News(
             items = items?.map { it.toDomain() } ?: emptyList()
         )
-        "coin" -> ChatPayload.Coin(
-            symbol = symbol ?: "",
-            name = name,
-            description = description,
-            marketCap = marketCap,
-            price = price,
-            change24h = change24h
-        )
+
+        "coin" -> {
+            // Check if we have extended coin data
+            if (id != null || rank != null || icon != null) {
+                ChatPayload.Coin(
+                    id = id ?: "",
+                    icon = icon,
+                    symbol = symbol ?: "",
+                    name = name,
+                    rank = rank,
+                    price = price,
+                    priceBtc = priceBtc,
+                    volume = volume,
+                    marketCap = marketCap,
+                    availableSupply = availableSupply,
+                    totalSupply = totalSupply,
+                    fullyDilutedValuation = fullyDilutedValuation,
+                    priceChange1h = priceChange1h,
+                    priceChange1d = priceChange1d,
+                    priceChange1w = priceChange1w,
+                    websiteUrl = websiteUrl,
+                    redditUrl = redditUrl,
+                    twitterUrl = twitterUrl,
+                    contractAddress = contractAddress,
+                    contractAddresses = contractAddresses?.map { it.toDomain() },
+                    decimals = decimals,
+                    explorers = explorers,
+                    liquidityScore = liquidityScore,
+                    volatilityScore = volatilityScore,
+                    marketCapScore = marketCapScore,
+                    riskScore = riskScore,
+                    avgChange = avgChange,
+                    description = description,
+                    change24h = priceChange1d
+                        ?: change24h // Use priceChange1d if available, fallback to change24h
+                )
+            } else {
+                // Legacy format for backward compatibility
+                ChatPayload.Coin(
+                    id = symbol ?: "",
+                    symbol = symbol ?: "",
+                    name = name,
+                    description = description,
+                    marketCap = marketCap,
+                    price = price,
+                    change24h = change24h
+                )
+            }
+        }
+
         else -> ChatPayload.Text("Unknown type: $type")
     }
 
@@ -155,4 +230,9 @@ fun ToolItemDto.toDomain() = ToolItem(
     title = title,
     description = description,
     sampleQuery = sampleQuery
+)
+
+fun ContractAddressDto.toDomain() = dev.kamikaze.cryptosy.domain.model.ContractAddress(
+    blockchain = blockchain,
+    contractAddress = contractAddress
 )
