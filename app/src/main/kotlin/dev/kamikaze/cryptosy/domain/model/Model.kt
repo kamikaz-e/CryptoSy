@@ -24,8 +24,10 @@ data class ToolItem(
     val id: String,
     val title: String,
     val description: String,
-    val sampleQuery: String
+    val sampleQuery: String,
+    val source: String = "unknown"
 )
+
 @Serializable
 sealed class ChatPayload {
 
@@ -81,17 +83,45 @@ sealed class ChatPayload {
         val riskScore: Double? = null,
         val avgChange: Double? = null,
         val description: String? = null,
-        // Legacy field for backward compatibility
         val change24h: Double? = null
     ) : ChatPayload() {
-        // Computed properties
         val displaySymbol: String
             get() = symbol.uppercase()
-        
+
         val displayName: String
             get() = name ?: symbol
     }
+
+    @Serializable
+    data class MoonPhase(
+        val phase: String,
+        val phaseEmoji: String,
+        val waxing: Boolean,
+        val waning: Boolean,
+        val lunarAge: Double,
+        val lunarAgePercent: Double,
+        val lunationNumber: Int,
+        val lunarDistance: Double,
+        val nextFullMoon: String?,
+        val lastFullMoon: String?,
+        val cryptoPrediction: CryptoPrediction? = null
+    ) : ChatPayload()
+
+    @Serializable
+    data class CombinedReport(
+        val moonPhase: MoonPhase,
+        val marketSummary: String,
+        val prediction: CryptoPrediction
+    ) : ChatPayload()
 }
+
+@Serializable
+data class CryptoPrediction(
+    val trend: String,
+    val confidence: String,
+    val reasoning: String,
+    val recommendation: String
+)
 
 @Serializable
 data class FearGreedValue(

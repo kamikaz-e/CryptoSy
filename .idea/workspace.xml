@@ -21,18 +21,27 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2b3dcf5-26ee-4ac5-94bf-053e7f9f2e3b" name="Changes" comment="gitignore">
+    <list default="true" id="f2b3dcf5-26ee-4ac5-94bf-053e7f9f2e3b" name="Changes" comment="version 1">
       <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/remote/MoonPhasesApi.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/usecase/GetMoonPhaseUseCase.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/MoonPhaseCard.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ChatViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ChatViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/cache/ChatCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/cache/ChatCache.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/dto/ChatResponseDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/dto/ChatResponseDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/remote/McpApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/remote/CryptoApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/repository/ChatRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/repository/ChatRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/repository/ChatRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/repository/ChatRepositoryImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/di/AppContainer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/di/AppContainer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/model/Model.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/model/Model.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/usecase/LoadToolsUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/domain/usecase/LoadToolsUseCase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/ui/ChatUiState.kt" afterDir="false" />
     </list>
+    <list id="fec81052-17b1-436f-8b73-094dc0bc39b8" name="asd" comment="" />
+    <list id="17bef19d-bb70-4b35-8bc6-2be166d7c256" name="ignore" comment="ignore" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,6 +74,7 @@
     </system>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -101,30 +111,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Android App.app.executor": "Run",
-    "DEBUGGABLE_DEVICE": "emul [emulator-5554]",
-    "DEBUGGABLE_PROCESS": "dev.kamikaze.cryptosy",
-    "DEBUGGER_ID": "Auto",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SHOW_ALL_PROCESSES": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/admin/StudioProjects/CryptoSy",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;emul [emulator-5554]&quot;,
+    &quot;DEBUGGABLE_PROCESS&quot;: &quot;dev.kamikaze.cryptosy&quot;,
+    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/admin/StudioProjects/CryptoSy&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -211,6 +221,11 @@
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -303,7 +318,23 @@
       <option name="project" value="LOCAL" />
       <updated>1763931687481</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="gitignore">
+      <option name="closed" value="true" />
+      <created>1763931885580</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1763931885580</updated>
+    </task>
+    <task id="LOCAL-00012" summary="gitignore">
+      <option name="closed" value="true" />
+      <created>1763931914536</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1763931914536</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -317,7 +348,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -332,6 +363,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="SHOW_PATCH_IN_EXPLORER" value="true" />
     <MESSAGE value="first commit template" />
     <MESSAGE value="fix gitignore" />
     <MESSAGE value="rename" />
@@ -340,7 +372,8 @@
     <MESSAGE value="git ignore" />
     <MESSAGE value="Порефакторил кнопки" />
     <MESSAGE value="gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
+    <MESSAGE value="version 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 1" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
   <component name="XDebuggerManager">
@@ -348,13 +381,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt</url>
-          <line>58</line>
+          <line>56</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/service/CryptoUpdateService.kt</url>
-          <line>49</line>
+          <line>47</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/kotlin/dev/kamikaze/cryptosy/data/remote/CryptoApi.kt</url>
+          <line>35</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -374,12 +415,12 @@
         </entry>
         <entry key="dev.kamikaze.cryptosy">
           <value>
-            <CheckInfo lastCheckTimestamp="1763678546311" />
+            <CheckInfo lastCheckTimestamp="1763936603793" />
           </value>
         </entry>
         <entry key="dev.kamikaze.cryptosy.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1763678546311" />
+            <CheckInfo lastCheckTimestamp="1763936603796" />
           </value>
         </entry>
         <entry key="dev.kamikaze.totracker">

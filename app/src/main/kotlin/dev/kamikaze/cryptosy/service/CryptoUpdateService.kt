@@ -12,6 +12,7 @@ import dev.kamikaze.cryptosy.R
 import dev.kamikaze.cryptosy.domain.model.ChatItem
 import dev.kamikaze.cryptosy.domain.model.ChatPayload
 import dev.kamikaze.cryptosy.domain.model.ChatRole
+import dev.kamikaze.cryptosy.domain.usecase.GetMoonPhaseUseCase
 import dev.kamikaze.cryptosy.domain.usecase.GetSummaryUseCase
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -60,7 +61,7 @@ class CryptoUpdateService : Service() {
         updateJob = serviceScope.launch {
             while (isActive) {
                 try {
-                    fetchAndEmitSummary()
+                    fetchSummary()
                 } catch (e: Exception) {
                     Timber.e(e, "Error fetching summary")
                 }
@@ -69,42 +70,21 @@ class CryptoUpdateService : Service() {
         }
     }
 
-    private suspend fun fetchAndEmitSummary() {
-        Timber.d("Fetching summary...")
+    private fun fetchSummary() {
+        serviceScope.launch {
+            Timber.d("Fetching periodic summary (crypto + moon)...")
 
         getSummaryUseCase()
             .onSuccess { items ->
-                Timber.d("Summary received: ${items.size} items")
-
-                // Add system message indicating it's a scheduled update
-                val currentTime = getCurrentTime()
-                val systemMessage = ChatItem(
-                    role = ChatRole.SYSTEM,
-                    payload = ChatPayload.Text("📊 Автоматическое обновление ($currentTime)")
-                )
-
-                val allItems = listOf(systemMessage) + items
-                _summaryFlow.emit(allItems)
-
-                // Update notification
-                updateNotification("Последнее обновление: $currentTime")
-            }
+                    Timber.d("Summary fetched: ${items.size} items")
+                    _summaryFlow.emit(items)
+                    updateNotification("Last update: ${formatTime(System.currentTimeMillis())}")
+                }
             .onFailure { error ->
                 Timber.e(error, "Failed to fetch summary")
-
-                // Emit error message
-                _summaryFlow.emit(
-                    listOf(
-                        ChatItem(
-                            role = ChatRole.SYSTEM,
-                            payload = ChatPayload.Text("⚠️ Ошибка обновления: ${error.message}")
-                        )
-                    )
-                )
-
-                // Update notification with error
-                updateNotification("Ошибка обновления")
-            }
+                    updateNotification("Update failed: ${error.message}")
+                }
+        }
     }
 
     private fun createNotification(text: String): Notification {
@@ -132,9 +112,9 @@ class CryptoUpdateService : Service() {
         notificationManager.notify(NOTIFICATION_ID, notification)
     }
 
-    private fun getCurrentTime(): String {
+    private fun formatTime(timeMillis: Long): String {
         val formatter = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
-        return formatter.format(Date())
+        return formatter.format(Date(timeMillis))
     }
 
     override fun onDestroy() {

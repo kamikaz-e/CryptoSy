@@ -7,9 +7,8 @@ data class ChatUiState(
     val items: List<ChatItem> = emptyList(),
     val input: String = "",
     val isSending: Boolean = false,
-    val isServiceRunning: Boolean = false,
+    val error: String? = null,
     val tools: List<ToolItem> = emptyList(),
     val showToolsDialog: Boolean = false,
-    val error: String? = null,
-    val cacheAge: Long? = null
+    val isServiceRunning: Boolean = false
 )

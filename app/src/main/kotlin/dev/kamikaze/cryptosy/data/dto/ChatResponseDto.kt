@@ -13,34 +13,21 @@ data class ChatResponseDto(
 data class ChatResponseItemDto(
     val type: String,
     val ts: Long = System.currentTimeMillis(),
-
-    // Text
     val text: String? = null,
-
-    // Prices
     val base: String? = null,
     val coins: List<CoinPriceDto>? = null,
-
     val name: String? = null,
     val now: FearGreedValueDto? = null,
     val yesterday: FearGreedValueDto? = null,
     val lastWeek: FearGreedValueDto? = null,
-
-    // Старый формат для обратной совместимости
     val value: Int? = null,
     val label: String? = null,
-
-    // News
     val items: List<NewsItemDto>? = null,
-
-    // Coin
     val symbol: String? = null,
     val description: String? = null,
     val marketCap: Double? = null,
     val price: Double? = null,
     val change24h: Double? = null,
-
-    // Extended Coin fields
     val id: String? = null,
     val icon: String? = null,
     val rank: Int? = null,
@@ -63,7 +50,8 @@ data class ChatResponseItemDto(
     val volatilityScore: Double? = null,
     val marketCapScore: Double? = null,
     val riskScore: Double? = null,
-    val avgChange: Double? = null
+    val avgChange: Double? = null,
+    val moonPhase: MoonPhaseDto? = null
 )
 
 @Serializable
@@ -110,7 +98,29 @@ data class ToolItemDto(
     val sampleQuery: String
 )
 
-// Mappers
+@Serializable
+data class MoonPhaseDto(
+    val phase: String,
+    val phaseEmoji: String,
+    val waxing: Boolean,
+    val waning: Boolean,
+    val lunarAge: Double,
+    val lunarAgePercent: Double,
+    val lunationNumber: Int,
+    val lunarDistance: Double,
+    val nextFullMoon: String,
+    val lastFullMoon: String,
+    val cryptoPrediction: CryptoPredictionDto? = null
+)
+
+@Serializable
+data class CryptoPredictionDto(
+    val trend: String,
+    val confidence: String,
+    val reasoning: String,
+    val recommendation: String
+)
+
 fun ChatResponseItemDto.toDomain(): ChatItem {
     val payload = when (type) {
         "text" -> ChatPayload.Text(text ?: "")
@@ -118,9 +128,7 @@ fun ChatResponseItemDto.toDomain(): ChatItem {
             base = base ?: "USD",
             coins = coins?.map { it.toDomain() } ?: emptyList()
         )
-
         "fearGreed" -> {
-            // Новый формат с историей
             if (now != null) {
                 ChatPayload.FearGreed(
                     name = name ?: "Fear and Greed Index",
@@ -129,7 +137,6 @@ fun ChatResponseItemDto.toDomain(): ChatItem {
                     lastWeek = lastWeek?.toDomain()
                 )
             } else {
-                // Старый формат для обратной совместимости
                 ChatPayload.FearGreed(
                     now = FearGreedValue(
                         value = value ?: 50,
@@ -139,13 +146,23 @@ fun ChatResponseItemDto.toDomain(): ChatItem {
                 )
             }
         }
-
         "news" -> ChatPayload.News(
             items = items?.map { it.toDomain() } ?: emptyList()
         )
-
+        "moonPhase" -> ChatPayload.MoonPhase(
+            phase = moonPhase?.phase ?: "Unknown",
+            phaseEmoji = moonPhase?.phaseEmoji ?: "🌙",
+            waxing = moonPhase?.waxing ?: false,
+            waning = moonPhase?.waning ?: false,
+            lunarAge = moonPhase?.lunarAge ?: 0.0,
+            lunarAgePercent = moonPhase?.lunarAgePercent ?: 0.0,
+            lunationNumber = moonPhase?.lunationNumber ?: 0,
+            lunarDistance = moonPhase?.lunarDistance ?: 0.0,
+            nextFullMoon = moonPhase?.nextFullMoon,
+            lastFullMoon = moonPhase?.lastFullMoon,
+            cryptoPrediction = moonPhase?.cryptoPrediction?.toDomain()
+        )
         "coin" -> {
-            // Check if we have extended coin data
             if (id != null || rank != null || icon != null) {
                 ChatPayload.Coin(
                     id = id ?: "",
@@ -176,11 +193,9 @@ fun ChatResponseItemDto.toDomain(): ChatItem {
                     riskScore = riskScore,
                     avgChange = avgChange,
                     description = description,
-                    change24h = priceChange1d
-                        ?: change24h // Use priceChange1d if available, fallback to change24h
+                    change24h = priceChange1d ?: change24h
                 )
             } else {
-                // Legacy format for backward compatibility
                 ChatPayload.Coin(
                     id = symbol ?: "",
                     symbol = symbol ?: "",
@@ -192,7 +207,6 @@ fun ChatResponseItemDto.toDomain(): ChatItem {
                 )
             }
         }
-
         else -> ChatPayload.Text("Unknown type: $type")
     }
 
@@ -225,14 +239,36 @@ fun NewsItemDto.toDomain() = NewsItem(
     url = url
 )
 
-fun ToolItemDto.toDomain() = ToolItem(
+fun ToolItemDto.toDomain(source: String = "unknown") = ToolItem(
     id = id,
     title = title,
     description = description,
-    sampleQuery = sampleQuery
+    sampleQuery = sampleQuery,
+    source = source
 )
 
-fun ContractAddressDto.toDomain() = dev.kamikaze.cryptosy.domain.model.ContractAddress(
+fun ContractAddressDto.toDomain() = ContractAddress(
     blockchain = blockchain,
     contractAddress = contractAddress
+)
+
+fun MoonPhaseDto.toDomain() = ChatPayload.MoonPhase(
+    phase = phase,
+    phaseEmoji = phaseEmoji,
+    waxing = waxing,
+    waning = waning,
+    lunarAge = lunarAge,
+    lunarAgePercent = lunarAgePercent,
+    lunationNumber = lunationNumber,
+    lunarDistance = lunarDistance,
+    nextFullMoon = nextFullMoon,
+    lastFullMoon = lastFullMoon,
+    cryptoPrediction = cryptoPrediction?.toDomain()
+)
+
+fun CryptoPredictionDto.toDomain() = CryptoPrediction(
+    trend = trend,
+    confidence = confidence,
+    reasoning = reasoning,
+    recommendation = recommendation
 )

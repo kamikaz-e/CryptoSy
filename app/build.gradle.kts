@@ -22,6 +22,8 @@ android {
 
         // MCP Server URL
         buildConfigField("String", "MCP_BASE_URL", "\"http://10.0.2.2:8080\"")
+        // Moon Phases MCP Server URL
+        buildConfigField("String", "MOON_PHASES_BASE_URL", "\"http://10.0.2.2:8081\"")
     }
 
     buildTypes {

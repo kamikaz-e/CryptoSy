@@ -9,6 +9,7 @@ import dev.kamikaze.cryptosy.data.repository.ChatRepository
 import dev.kamikaze.cryptosy.domain.model.ChatItem
 import dev.kamikaze.cryptosy.domain.model.ChatPayload
 import dev.kamikaze.cryptosy.domain.model.ChatRole
+import dev.kamikaze.cryptosy.domain.usecase.GetSummaryUseCase
 import dev.kamikaze.cryptosy.domain.usecase.LoadToolsUseCase
 import dev.kamikaze.cryptosy.domain.usecase.SendMessageUseCase
 import dev.kamikaze.cryptosy.service.CryptoUpdateService
@@ -22,7 +23,8 @@ class ChatViewModel(
     private val app: Application,
     private val repository: ChatRepository,
     private val sendMessageUseCase: SendMessageUseCase,
-    private val loadToolsUseCase: LoadToolsUseCase
+    private val loadToolsUseCase: LoadToolsUseCase,
+    private val getSummaryUseCase: GetSummaryUseCase
 ) : AndroidViewModel(app) {
 
     companion object {
@@ -34,9 +36,10 @@ class ChatViewModel(
                 override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
                     return ChatViewModel(
                         app = app,
-                        repository =  container.chatRepository,
+                        repository = container.chatRepository,
                         sendMessageUseCase = container.sendMessageUseCase,
-                        loadToolsUseCase = container.loadToolsUseCase
+                        loadToolsUseCase = container.loadToolsUseCase,
+                        getSummaryUseCase = container.getSummaryUseCase
                     ) as T
                 }
             }
@@ -50,6 +53,7 @@ class ChatViewModel(
         loadCache()
         loadTools()
         observeServiceUpdates()
+        loadInitialData()
     }
 
     fun onEvent(event: ChatEvent) {
@@ -70,6 +74,7 @@ class ChatViewModel(
                         showToolsDialog = false
                     )
                 }
+                Timber.d("Tool picked: ${event.tool.title}, source: ${event.tool.source}")
             }
 
             is ChatEvent.ToolsDialogDismissed -> {
@@ -84,6 +89,37 @@ class ChatViewModel(
         }
     }
 
+    private fun loadInitialData() {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isSending = true) }
+
+            addMessage(
+                ChatItem(
+                    role = ChatRole.SYSTEM,
+                    payload = ChatPayload.Text("🔄 Loading market data and moon phase analysis...")
+                )
+            )
+
+            getSummaryUseCase()
+                .onSuccess { items ->
+                    Timber.d("Initial data loaded: ${items.size} items")
+                    addMessages(items)
+                }
+                .onFailure { error ->
+                    Timber.e(error, "Failed to load initial data")
+                    _uiState.update { it.copy(error = error.message) }
+                    addMessage(
+                        ChatItem(
+                            role = ChatRole.SYSTEM,
+                            payload = ChatPayload.Text("❌ Failed to load initial data: ${error.message}")
+                        )
+                    )
+                }
+
+            _uiState.update { it.copy(isSending = false) }
+        }
+    }
+
     private fun sendMessage() {
         val message = _uiState.value.input.trim()
         if (message.isEmpty()) return
@@ -91,14 +127,14 @@ class ChatViewModel(
         viewModelScope.launch {
             _uiState.update { it.copy(isSending = true, input = "") }
 
-            // Add user message
             val userMessage = ChatItem(
                 role = ChatRole.USER,
                 payload = ChatPayload.Text(message)
             )
             addMessage(userMessage)
 
-            // Send to MCP
+            Timber.d("Sending message with auto-routing: $message")
+
             sendMessageUseCase(message)
                 .onSuccess { items ->
                     items.forEach { addMessage(it) }
@@ -108,7 +144,7 @@ class ChatViewModel(
                     addMessage(
                         ChatItem(
                             role = ChatRole.SYSTEM,
-                            payload = ChatPayload.Text("❌ Ошибка: ${error.message}")
+                            payload = ChatPayload.Text("❌ Error: ${error.message}")
                         )
                     )
                 }
@@ -157,6 +193,7 @@ class ChatViewModel(
             loadToolsUseCase()
                 .onSuccess { tools ->
                     _uiState.update { it.copy(tools = tools) }
+                    Timber.d("Loaded tools: ${tools.map { "${it.title} (${it.source})" }}")
                 }
                 .onFailure { error ->
                     Timber.e(error, "Failed to load tools")
@@ -189,7 +226,5 @@ class ChatViewModel(
 
     override fun onCleared() {
         super.onCleared()
-        // Optionally stop service when ViewModel is cleared
-        // stopForegroundService()
     }
 }

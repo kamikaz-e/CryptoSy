@@ -7,6 +7,6 @@ class LoadToolsUseCase(
     private val repository: ChatRepository
 ) {
     suspend operator fun invoke(): Result<List<ToolItem>> {
-        return repository.getTools()
+        return repository.getAllTools()
     }
 }
