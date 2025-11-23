@@ -158,6 +158,9 @@ fileHashes.lock
 .gradle/buildCache-*/gradleBuildCache.lock
 .gradle/buildCache-*/gradleBuildCache/
 
+.kotlin
+.kotlin/
+
 # Kotlin build cache (Kotlin Multiplatform)
 .gradle/caches/7.5.1/fileHashes/
 .gradle/caches/7.5.1/executionHistory/
