@@ -42,6 +42,8 @@ captures/
 
 # IntelliJ
 *.iml
+.idea/
+.idea
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/gradle.xml
@@ -155,6 +157,9 @@ fileHashes.lock
 .gradle/buildCache/
 .gradle/buildCache-*/gradleBuildCache.lock
 .gradle/buildCache-*/gradleBuildCache/
+
+.kotlin
+.kotlin/
 
 # Kotlin build cache (Kotlin Multiplatform)
 .gradle/caches/7.5.1/fileHashes/
